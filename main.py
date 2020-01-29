@@ -92,7 +92,7 @@ def main():
 	parser = argparse.ArgumentParser()
 	parser.add_argument("--test_data", default='test_input.txt', type=str, help="Name of the test file")
 	args = parser.parse_args()
-	model_path='save/model.bin'
+	model_path='model/model.bin'
 	model = Model(h=4)
 	device = "cpu"
 	model.to(device)
