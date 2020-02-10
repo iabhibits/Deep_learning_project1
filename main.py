@@ -41,9 +41,15 @@ def read_test_data(filename):
 	#print(input_feature)
 	w = torch.Tensor([0.1,0.2,0.3,0.4])
 	dataset = TensorDataset(input_feature)
+<<<<<<< HEAD
 	return dataset,w,data
 
 def evaluate(model,eval_dataset,device,w,data):
+=======
+	return dataset,w
+
+def evaluate(model,eval_dataset,device,w):
+>>>>>>> 06fdb4eeaba0d8338b6f2aa807e38d6b667b172a
 	results = {}
 	preds = None
 	eval_sampler = SequentialSampler(eval_dataset)
@@ -72,8 +78,13 @@ def evaluate(model,eval_dataset,device,w,data):
 		r = np.argmax(preds[i])
 		#print(r)
 		if r == 0:
+<<<<<<< HEAD
 			print(int(data[0][i]))
 			eval_result.append(int(data[0][i]))
+=======
+			print(i+1)
+			eval_result.append(i+1)
+>>>>>>> 06fdb4eeaba0d8338b6f2aa807e38d6b667b172a
 		elif r == 1:
 			print('fizz')
 			eval_result.append('fizz')
@@ -104,9 +115,15 @@ def main():
 	model = Model(h=4)
 	device = "cpu"
 	model.to(device)
+<<<<<<< HEAD
 	eval_dataset,w,data = read_test_data(args.test_data)
 	model.load_state_dict(torch.load(model_path))
 	evaluate(model, eval_dataset,device,w,data)
+=======
+	eval_dataset,w = read_test_data(args.test_data)
+	model.load_state_dict(torch.load(model_path))
+	evaluate(model, eval_dataset,device,w)
+>>>>>>> 06fdb4eeaba0d8338b6f2aa807e38d6b667b172a
 
 if __name__ == '__main__':
 	main()
